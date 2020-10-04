@@ -1,4 +1,46 @@
 body {
-  background-color: cyan;
+  background-color: #464646;
+  color: #e7e7e7;
+}
+
+body a {
+  color: #60fcfc;
+}
+
+body a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+body header {
+  padding: 5px 15px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+body header #headerLogo {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+body header nav ul {
+  position: relative;
+  top: 6px;
+}
+
+body main {
+  padding: 20px 10px;
+}
+
+body main h2 {
+  width: 135px;
+  font-size: 2em;
+  font-weight: 700;
+  border-bottom: 1px solid #60fcfc;
+}
+
+body main h2:after {
+  content: '';
+  position: relative;
+  display: block;
 }
 /*# sourceMappingURL=app.css.map */

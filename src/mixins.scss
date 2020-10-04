@@ -1,0 +1,7 @@
+@mixin afterLine {
+  &:after {
+    content: '';
+    position: relative;
+    display: block;
+  }
+}

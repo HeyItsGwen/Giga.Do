@@ -1,3 +1,44 @@
+@import './mixins.scss';
+@import './variables.scss';
+
 body {
-  background-color: cyan;
+  background-color: rgb(70, 70, 70);
+  color: $font-border-color;
+
+  a {
+    color: $highlight-font-color;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  header {
+    padding: 5px 15px;
+    border-bottom: 1px solid $font-border-color;
+    #headerLogo {
+      font-size: 1.4em;
+      font-weight: 600;
+    }
+
+    nav {
+      ul {
+        position: relative;
+        top: 6px;
+      }
+    }
+  }
+
+  main {
+    padding: 20px 10px;
+
+    h2 {
+      width: 135px;
+      font-size: 2em;
+      font-weight: 700;
+      @include afterLine;
+      border-bottom: 1px solid $highlight-font-color;
+    }
+  }
 }

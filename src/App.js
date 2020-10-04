@@ -11,46 +11,68 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='/about'>About</Link>
-            </li>
-            <li>
-              <Link to='/users'>Users</Link>
-            </li>
-          </ul>
-        </nav>
-        
-        <Switch>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/users'>
-            <Users />
-          </Route>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
+        <header class='d-flex justify-content-between align-items-end'>
+          <Link to='/' class='align-self-center' id='headerLogo'>Giga.do</Link>
+          <nav>
+            <ul class='nav nav-tabs'>
+              <li class='nav-item'>
+                <Link to='/' class='nav-link'>Tasks</Link>
+              </li>
+              <li class='nav-item'>
+                <Link to='/urgent' class='nav-link'>Urgent</Link>
+              </li>
+              <li class='nav-item'>
+                <Link to='/past' class='nav-link'>Past Tasks</Link>
+              </li>
+              <li class='nav-item'>
+                <Link to='/settings' class='nav-link'>Settings</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main id='main'>
+          <Switch>
+            <Route path='/urgent'>
+              <Urgent />
+            </Route>
+            <Route path='/settings'>
+              <Settings />
+            </Route>
+            <Route path='/past'>
+              <Past />
+            </Route>
+            <Route path='/'>
+              <Tasks />
+            </Route>
+          </Switch>
+        </main>
       </div>
     </Router>
   );
 }
 
-function Home() {
-  return <h2>Hello?</h2>;
+function Tasks() {
+  return (
+    <h2>Tasks</h2>
+  );
 }
 
-function About() {
-  return <h2>About</h2>;
+function Urgent() {
+  return (
+    <h2>Urgent Tasks</h2>
+  );
 }
 
-function Users() {
-  return <h2>Users</h2>;
+function Past() {
+  return (
+    <h2>Past Tasks</h2>
+  );
+}
+
+function Settings() {
+  return (
+    <h2>Settings</h2>
+  );
 }
 
 export default App;
