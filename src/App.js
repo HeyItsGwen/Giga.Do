@@ -1,4 +1,5 @@
 import React from 'react';
+//import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import * as logic from './logic.js';
 
 function App() {
   return (
@@ -30,7 +32,8 @@ function App() {
             </ul>
           </nav>
         </header>
-        <main id='main'>
+        <main id='main' class='d-flex flex-column'>
+          <button type='button' class='btn btn-primary align-self-end' id='newTaskButton' onClick={() => {logic.showElement(logic.newTaskHolder)}}>New Task</button>
           <Switch>
             <Route path='/urgent'>
               <Urgent />
@@ -48,30 +51,38 @@ function App() {
         </main>
       </div>
     </Router>
-  );
+  )
 }
 
 function Tasks() {
   return (
-    <h2>Tasks</h2>
+    <main id='main' class='d-flex flex-column'>
+      <h2>Tasks</h2>
+    </main>
   );
 }
 
 function Urgent() {
   return (
-    <h2>Urgent Tasks</h2>
+    <main id='main' class='d-flex flex-column'>
+      <h2>Urgent Tasks</h2>
+    </main>
   );
 }
 
 function Past() {
   return (
-    <h2>Past Tasks</h2>
+    <main id='main' class='d-flex flex-column'>
+      <h2>Past Tasks</h2>
+    </main>
   );
 }
 
 function Settings() {
   return (
-    <h2>Settings</h2>
+    <main id='main' class='d-flex flex-column'>
+      <h2>Settings</h2>
+    </main>
   );
 }
 

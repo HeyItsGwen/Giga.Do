@@ -2,8 +2,10 @@
 @import './variables.scss';
 
 body {
-  background-color: rgb(70, 70, 70);
+  background-color: $background-color;
   color: $font-border-color;
+  display: flex;
+  flex-direction: column;
 
   a {
     color: $highlight-font-color;
@@ -11,6 +13,23 @@ body {
     &:hover {
       color: white;
       text-decoration: none;
+    }
+  }
+
+  #taskFormHolder {
+    position: absolute;
+    z-index: 1;
+    background-color: $font-border-color;
+    color: $background-color;
+    border-radius: 4px;
+    border: 1px solid $highlight-font-color;
+    justify-self: center;
+    top: 25px;
+    width: 350px;
+    padding: 25px;
+    
+    button {
+      margin-top: 15px;
     }
   }
 
@@ -32,6 +51,23 @@ body {
 
   main {
     padding: 20px 10px;
+
+    button {
+      width: 110px;
+
+      @media only screen and (max-width: 576px) {
+        width: 100%;
+      }
+
+      background-color: $background-color !important;
+      border-color: $font-border-color !important;
+      color: $font-border-color !important;
+
+      &:hover {
+        color: $highlight-font-color !important;
+        background-color: rgb(44, 44, 44) !important;
+      }
+    }
 
     h2 {
       width: 135px;
