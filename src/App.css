@@ -86,4 +86,25 @@ body main h2:after {
   position: relative;
   display: block;
 }
+
+body main #tasks div #taskDiv {
+  background-color: #e7e7e7;
+  color: #464646;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 6px;
+  width: 60vw;
+  min-width: 350px;
+}
+
+body main #tasks div #taskDiv h3 {
+  border-bottom: 1px solid #60fcfc;
+  max-width: 50%;
+}
+
+body main #tasks div #taskDiv h3:after {
+  content: '';
+  position: relative;
+  display: block;
+}
 /*# sourceMappingURL=app.css.map */

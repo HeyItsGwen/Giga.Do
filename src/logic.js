@@ -28,7 +28,7 @@ rootDiv.addEventListener('click',() => {
     hideElement(newTaskHolder);
 });
 
-let normalFormat = [['title1','body1','2020-10-15',false],['title2','body2','2020-01-13',true],['title3','body3','2020-2-66',false]];
+export let normalFormat = [['title1','body1','2020-10-15',false],['title2','body2','2020-01-13',true],['title3','body3','2020-2-66',false]];
 
 const stringifyArray = () => {
     //use normalFormat array for now, but will change once testing done
@@ -48,26 +48,22 @@ const stringifyArray = () => {
     return stringified;
 }
 
+//make render function for onload that translates our stringified array
+//to be used inside the app.js file
+
 submitTaskButton.addEventListener('click',() => {
-    let title = titleInput.value;
-    let body = bodyInput.value;
-    let due = dueDate.value;
     if(urgentCheck.checked){
         urgentCheck.value='true';
     }else{
         urgentCheck.value='false';
     }
-    let urgent= urgentCheck.value;
-
-    
-
-    //then load that back into the task array and call a render() function.
-    console.log(title,body,due,urgent);
-
-    localStorage.clear();
-    localStorage.setItem('gigatasks', stringifyArray());
-
-    //make render function that translates our stringified stuff
+    //turn current input into array
+    let newTaskArr = [titleInput.value,bodyInput.value,dueDate.value,urgentCheck.value];
+    //push new task into current tasks array
+    normalFormat.push(newTaskArr);
+    //clear localStorage, then save stringified array to 'gigatasks'
+    //-localStorage.clear();
+    //-localStorage.setItem('gigatasks', stringifyArray());
     
     taskForm.reset();
     hideElement(newTaskHolder);

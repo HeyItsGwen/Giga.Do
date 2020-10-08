@@ -76,5 +76,25 @@ body {
       @include afterLine;
       border-bottom: 1px solid $highlight-font-color;
     }
+
+    #tasks {
+      div {
+        #taskDiv {
+          background-color: $font-border-color;
+          color: $background-color;
+          padding: 15px;
+          margin: 10px;
+          border-radius: 6px;
+          width: 60vw;
+          min-width: 350px;
+
+          h3 {
+            @include afterLine;
+            border-bottom: 1px solid $highlight-font-color;
+            max-width: 50%;
+          }
+        }
+      }
+    }
   }
 }
