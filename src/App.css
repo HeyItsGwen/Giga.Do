@@ -107,4 +107,25 @@ body main #tasks div #taskDiv h3:after {
   position: relative;
   display: block;
 }
+
+body main #urgentTasks div #taskDiv {
+  background-color: #ffc2c2;
+  color: #464646;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 6px;
+  width: 60vw;
+  min-width: 350px;
+}
+
+body main #urgentTasks div #taskDiv h3 {
+  border-bottom: 1px solid red;
+  max-width: 50%;
+}
+
+body main #urgentTasks div #taskDiv h3:after {
+  content: '';
+  position: relative;
+  display: block;
+}
 /*# sourceMappingURL=app.css.map */

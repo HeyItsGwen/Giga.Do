@@ -46,22 +46,61 @@ function App() {
   )
 }
 
+let organisedArr = logic.normalFormat.sort((a,b) => a[2]-b[2]);
+let urgentTaskArr = organisedArr.filter(item => (item[3]) );
+let notUrgentArr = organisedArr.filter(item => (!item[3]));
+
 const TaskList = () => {
   return (
     <div>
-      {logic.normalFormat.map(task => (
-        <div id='taskDiv'>
+      {notUrgentArr.map(task => (
+        <div key={task} id='taskDiv'>
           <h3>{task[0].charAt(0).toUpperCase()+task[0].slice(1)}</h3>
-          <p class='text-right'>{task[1]}</p>
-          <p>{task[2]}</p>
-          <p class='text-center'>{task[3]===true?'Urgent!':''}</p>
+          <p class='text-right' key={task}>{task[1]}</p>
+          <p>Due: {task[2].toString().slice(0,15)}</p>
         </div>
       ))}
     </div>
   );
 }
 
+const UrgentTasks = () => {
+  return(
+    <div>
+      {urgentTaskArr.map(task => (
+        <div key={task} id='taskDiv'>
+          <h3>{task[0].charAt(0).toUpperCase()+task[0].slice(1)}</h3>
+          <p class='text-right'>{task[1]}</p>
+          <p>Due: {task[2].toString().slice(0,15)}</p>
+        </div>
+      )
+      )}
+    </div>
+  )
+}
+
+function UrgentSection() {
+  return (
+    <section class='d-flex flex-column align-items-center urgent' id='urgentTasks'>
+      <UrgentTasks />
+    </section>
+  )
+}
+
 function TasksPage() {
+  if (urgentTaskArr.length > 0) {
+    return (
+      <div>
+        <h2 class='text-right'>Urgent</h2>
+        <UrgentSection />
+        <h2 class='text-right'>Tasks</h2>
+        <section class='d-flex flex-column align-items-center' id='tasks'>
+          <TaskList />
+        </section>
+      </div>
+    )
+  }
+  
   return (
     <div>
       <h2 class='text-right'>Tasks</h2>

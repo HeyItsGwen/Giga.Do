@@ -28,7 +28,7 @@ rootDiv.addEventListener('click',() => {
     hideElement(newTaskHolder);
 });
 
-export let normalFormat = [['title1','body1','2020-10-15',false],['title2','body2','2020-01-13',true],['title3','body3','2020-2-66',false]];
+export let normalFormat = [['Example Task','This here task is an example',new Date('2020-01-15'),true]];
 
 const stringifyArray = () => {
     //use normalFormat array for now, but will change once testing done
@@ -40,14 +40,29 @@ const stringifyArray = () => {
         //iterate through the array that holds task info
         for(let j=0; j<normalFormat[i].length; j++){
             //add current array location to string
-            let currentLoc = normalFormat[i][j];
+            let currentLoc = normalFormat[i][j].toString();
             string = string + currentLoc + ':';
         }
         stringified.push(string);
     }
-    return stringified;
+    return stringified.join(',');
 }
 
+console.log(stringifyArray(normalFormat));
+
+const unString = () => {
+    let taskString;
+    !localStorage.getItem('gigatasks') ? taskString='Example Task:This here task is an example:2020-01-15:true':taskString=localStorage.getItem('gigatasks');
+    let splitTaskStrings = taskString.split(',');
+    let splitTaskArr = [];
+    for(let i in splitTaskStrings){
+        splitTaskArr.push(splitTaskStrings[i].split(":"));
+        splitTaskArr[2] = new Date(splitTaskArr[i][2]);
+    }
+    return(splitTaskArr);
+}
+
+console.log(unString());
 //make render function for onload that translates our stringified array
 //to be used inside the app.js file
 
@@ -61,9 +76,11 @@ submitTaskButton.addEventListener('click',() => {
     let newTaskArr = [titleInput.value,bodyInput.value,dueDate.value,urgentCheck.value];
     //push new task into current tasks array
     normalFormat.push(newTaskArr);
-    //clear localStorage, then save stringified array to 'gigatasks'
-    //-localStorage.clear();
-    //-localStorage.setItem('gigatasks', stringifyArray());
+
+    localStorage.clear();
+    localStorage.setItem('gigatasks', stringifyArray(normalFormat));
+
+    //refill task array
     
     taskForm.reset();
     hideElement(newTaskHolder);
